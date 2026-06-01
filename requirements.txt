@@ -1,0 +1,9 @@
+torch
+torchvision
+diffusers
+transformers
+accelerate
+numpy
+matplotlib
+pillow
+tqdm
