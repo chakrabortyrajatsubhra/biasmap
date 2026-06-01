@@ -12,19 +12,19 @@
 
 <style>
   :root{
-    --paper:#f6f3ec; --paper-2:#efeae0; --ink:#191510; --ink-soft:#4a4339;
-    --line:#d9d2c4; --accent:#d83a22; --accent-2:#1f6f8b; --hot:#f2b705;
-    --maxw:1080px; --radius:14px;
+    --bg:#0a0a0c; --bg-2:#131318; --ink:#f4f1ea; --ink-soft:#a7a299;
+    --line:#2a2a32; --accent:#ff5a3c; --accent-2:#4fd1e0; --hot:#ffd23f;
+    --maxw:1140px; --radius:16px;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
-    margin:0; background:var(--paper); color:var(--ink);
+    margin:0; background:var(--bg); color:var(--ink);
     font-family:"IBM Plex Sans",sans-serif; font-size:17px; line-height:1.62;
     -webkit-font-smoothing:antialiased;
     background-image:
-      radial-gradient(900px 500px at 85% -10%, rgba(216,58,34,.07), transparent 60%),
-      radial-gradient(700px 500px at -5% 5%, rgba(31,111,139,.07), transparent 60%);
+      radial-gradient(1000px 600px at 85% -10%, rgba(255,90,60,.14), transparent 60%),
+      radial-gradient(800px 600px at -5% 8%, rgba(79,209,224,.10), transparent 60%);
     background-attachment:fixed;
   }
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
@@ -33,98 +33,120 @@
 
   /* ---- accepted banner ---- */
   .banner{
-    background:var(--accent); color:#fff; text-align:center;
-    font-family:"IBM Plex Mono",monospace; font-size:13px; letter-spacing:.16em;
-    text-transform:uppercase; padding:11px 16px; font-weight:500;
+    background:linear-gradient(90deg, rgba(255,90,60,.12), rgba(255,90,60,.2), rgba(255,90,60,.12));
+    border-bottom:1px solid rgba(255,90,60,.3);
+    color:var(--accent); text-align:center;
+    font-family:"IBM Plex Mono",monospace; font-size:13px; letter-spacing:.18em;
+    text-transform:uppercase; padding:12px 16px; font-weight:500;
   }
-  .banner b{font-weight:500;border-bottom:1px solid rgba(255,255,255,.5)}
 
   /* ---- hero ---- */
-  header{padding:64px 0 24px;text-align:center}
-  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
-  h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(2.2rem,5.2vw,3.8rem);line-height:1.05;letter-spacing:-.015em;margin:0 auto 12px;max-width:17ch}
+  header{padding:70px 0 26px;text-align:center}
+  .eyebrow{
+    font-family:"Fraunces",serif; font-weight:700; font-style:italic;
+    font-size:clamp(1.6rem,4vw,2.8rem); letter-spacing:.02em;
+    margin-bottom:26px; color:#fff;
+    text-shadow:
+      0 0 8px rgba(255,90,60,.9),
+      0 0 22px rgba(255,90,60,.65),
+      0 0 48px rgba(255,90,60,.45),
+      0 0 80px rgba(255,90,60,.25);
+    animation:glow 2.8s ease-in-out infinite alternate;
+  }
+  @keyframes glow{
+    from{text-shadow:0 0 8px rgba(255,90,60,.8),0 0 20px rgba(255,90,60,.55),0 0 40px rgba(255,90,60,.35),0 0 70px rgba(255,90,60,.2)}
+    to{text-shadow:0 0 12px rgba(255,90,60,1),0 0 30px rgba(255,90,60,.8),0 0 60px rgba(255,90,60,.55),0 0 100px rgba(255,90,60,.35)}
+  }
+  h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(2.8rem,6.4vw,5rem);line-height:1.02;letter-spacing:-.02em;margin:0 auto 16px;max-width:17ch}
   h1 .name{color:var(--accent);font-style:italic}
-  .subtitle{font-family:"Fraunces",serif;font-style:italic;font-weight:400;font-size:clamp(1.05rem,2.2vw,1.4rem);color:var(--ink-soft);max-width:48ch;margin:0 auto 30px}
+  .subtitle{font-family:"Fraunces",serif;font-style:italic;font-weight:400;font-size:clamp(1.15rem,2.4vw,1.55rem);color:var(--ink-soft);max-width:50ch;margin:0 auto 34px}
 
-  .authors{font-size:1.04rem;font-weight:500;margin:6px auto 6px;max-width:62ch;line-height:1.8}
+  .authors{font-size:1.06rem;font-weight:500;margin:6px auto 6px;max-width:64ch;line-height:1.85}
   .authors a{color:var(--ink)}
   .authors a:hover{color:var(--accent)}
   .authors sup{color:var(--accent-2);font-weight:600}
   .authors .star{color:var(--accent);font-weight:700}
-  .affil{font-size:.92rem;color:var(--ink-soft);margin:4px auto 2px;max-width:62ch}
-  .equal{font-size:.84rem;color:var(--ink-soft);margin-bottom:28px}
+  .affil{font-size:.94rem;color:var(--ink-soft);margin:4px auto 2px;max-width:64ch}
+  .equal{font-size:.86rem;color:var(--ink-soft);margin-bottom:30px}
 
   .buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--paper);padding:11px 20px;border-radius:999px;font-size:.92rem;font-weight:500;border:1px solid var(--ink);transition:transform .18s ease, background .18s ease}
-  .btn:hover{transform:translateY(-2px);text-decoration:none;background:var(--accent);border-color:var(--accent)}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--bg);padding:12px 22px;border-radius:999px;font-size:.94rem;font-weight:600;border:1px solid var(--ink);transition:transform .18s ease, background .18s ease, box-shadow .18s ease}
+  .btn:hover{transform:translateY(-2px);text-decoration:none;background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 0 24px rgba(255,90,60,.5)}
   .btn.ghost{background:transparent;color:var(--ink)}
-  .btn.ghost:hover{background:var(--ink);color:var(--paper)}
+  .btn.ghost:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
   .btn svg{width:16px;height:16px;fill:currentColor}
 
   /* ---- figures ---- */
-  .figblock{margin:42px 0 6px}
+  .figblock{margin:46px 0 6px}
   .figblock figure{margin:0}
-  .figblock img{width:100%;height:auto;display:block;border-radius:var(--radius);border:1px solid var(--line);background:#fff;box-shadow:0 24px 60px -34px rgba(25,21,16,.5)}
-  figcaption{font-size:.9rem;color:var(--ink-soft);margin-top:14px;max-width:78ch;text-align:left}
+  .figblock img{width:100%;height:auto;display:block;border-radius:var(--radius);border:1px solid var(--line);background:#000;box-shadow:0 30px 70px -30px rgba(0,0,0,.9)}
+  /* half-width centered figures, used for qualitative results */
+  .figblock.half figure{max-width:50%;margin:0 auto}
+  figcaption{font-size:.9rem;color:var(--ink-soft);margin-top:14px;max-width:80ch;text-align:left}
+  .figblock.half figcaption{max-width:100%;text-align:center}
   figcaption b{color:var(--ink);font-weight:600}
   .fig-placeholder{
     border:2px dashed var(--line);border-radius:var(--radius);
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
-    padding:64px 20px;background:var(--paper-2);text-align:center;
+    padding:64px 20px;background:var(--bg-2);text-align:center;
   }
   .fig-placeholder span{font-family:"Fraunces",serif;font-style:italic;font-size:1.15rem;color:var(--accent)}
   .fig-placeholder small{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
 
   /* ---- stats ---- */
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin:54px 0}
-  .stat{background:var(--paper);padding:26px 22px;text-align:center}
-  .stat .num{font-family:"Fraunces",serif;font-weight:700;font-size:2.5rem;line-height:1;color:var(--accent)}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin:58px 0}
+  .stat{background:var(--bg-2);padding:30px 22px;text-align:center}
+  .stat .num{font-family:"Fraunces",serif;font-weight:700;font-size:3rem;line-height:1;color:var(--accent)}
   .stat:nth-child(2) .num{color:var(--accent-2)}
-  .stat:nth-child(3) .num{color:var(--ink)}
-  .stat .lbl{font-size:.86rem;color:var(--ink-soft);margin-top:9px}
+  .stat:nth-child(3) .num{color:var(--hot)}
+  .stat .lbl{font-size:.86rem;color:var(--ink-soft);margin-top:10px}
 
   /* ---- sections ---- */
-  section{padding:40px 0}
-  .section-tag{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-2);margin-bottom:14px}
-  h2{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.7rem,3.4vw,2.4rem);letter-spacing:-.01em;margin:0 0 18px}
-  .lede{font-size:1.06rem;color:var(--ink-soft);max-width:72ch}
-  .abstract-body{max-width:72ch}
+  section{padding:46px 0}
+  .section-tag{font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-2);margin-bottom:16px}
+  h2{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(2.1rem,4.4vw,3.2rem);letter-spacing:-.015em;margin:0 0 20px;line-height:1.06}
+  .lede{font-size:1.1rem;color:var(--ink-soft);max-width:74ch}
+  .abstract-body{max-width:74ch}
   hr.rule{border:0;border-top:1px solid var(--line);margin:0}
 
   .findings{display:grid;gap:18px;margin-top:8px}
-  .finding{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px}
-  .finding .rq{font-family:"Fraunces",serif;font-style:italic;font-weight:600;font-size:1.5rem;color:var(--accent);line-height:1;white-space:nowrap}
-  .finding h3{margin:0 0 6px;font-size:1.15rem;font-weight:600}
-  .finding p{margin:0;color:var(--ink-soft);font-size:.98rem}
+  .finding{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px}
+  .finding .rq{font-family:"Fraunces",serif;font-style:italic;font-weight:700;font-size:1.7rem;color:var(--accent);line-height:1;white-space:nowrap}
+  .finding h3{margin:0 0 6px;font-size:1.25rem;font-weight:600}
+  .finding p{margin:0;color:var(--ink-soft);font-size:1rem}
 
-  .contribs{list-style:none;padding:0;margin:14px 0 0;max-width:76ch}
-  .contribs li{position:relative;padding:14px 0 14px 34px;border-bottom:1px solid var(--line)}
+  .contribs{list-style:none;padding:0;margin:14px 0 0;max-width:78ch}
+  .contribs li{position:relative;padding:15px 0 15px 34px;border-bottom:1px solid var(--line)}
   .contribs li:last-child{border-bottom:0}
-  .contribs li::before{content:"";position:absolute;left:2px;top:21px;width:9px;height:9px;border-radius:50%;background:var(--accent)}
+  .contribs li::before{content:"";position:absolute;left:2px;top:22px;width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px rgba(255,90,60,.8)}
 
-  .bibtex{background:var(--ink);color:#ece6da;border-radius:var(--radius);padding:22px 24px;overflow:auto;position:relative}
+  .bibtex{background:#000;color:#d7d2c8;border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;overflow:auto;position:relative}
   .bibtex pre{margin:0;font-family:"IBM Plex Mono",monospace;font-size:13.5px;line-height:1.6;white-space:pre}
-  .copy-btn{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.1);color:#ece6da;border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer;font-family:"IBM Plex Mono",monospace}
+  .copy-btn{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.08);color:#d7d2c8;border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer;font-family:"IBM Plex Mono",monospace}
   .copy-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
 
-  footer{text-align:center;padding:46px 0 60px;color:var(--ink-soft);font-size:.85rem;border-top:1px solid var(--line);margin-top:30px}
+  footer{text-align:center;padding:50px 0 64px;color:var(--ink-soft);font-size:.85rem;border-top:1px solid var(--line);margin-top:30px}
 
   .reveal{opacity:0;transform:translateY(14px);animation:rise .7s ease forwards}
   @keyframes rise{to{opacity:1;transform:none}}
   .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.25s}.d4{animation-delay:.35s}.d5{animation-delay:.45s}
-  @media (max-width:680px){.stats{grid-template-columns:1fr}.finding{grid-template-columns:1fr;gap:8px}}
-  @media (prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none}}
+  @media (max-width:680px){
+    .stats{grid-template-columns:1fr}
+    .finding{grid-template-columns:1fr;gap:8px}
+    .figblock.half figure{max-width:100%}  /* full width on mobile so it stays legible */
+  }
+  @media (prefers-reduced-motion:reduce){.reveal,.eyebrow{animation:none;opacity:1;transform:none}}
 </style>
 </head>
 
 <body>
 
-<div class="banner">Accepted to <b>KDD 2026</b></div>
+<div class="banner">Accepted to KDD 2026</div>
 
 <div class="wrap">
 
   <header>
-    <div class="eyebrow reveal d1">ACM SIGKDD 2026 &middot; Text-to-Image Fairness</div>
+    <div class="eyebrow reveal d1">ACM SIGKDD 2026</div>
     <h1 class="reveal d2"><span class="name">BiasMap</span>: Leveraging Cross-Attentions to Discover &amp; Mitigate Hidden Social Biases in Text-to-Image Generation</h1>
     <p class="subtitle reveal d2">Cross-attention attribution maps expose the representational bias that distributional fairness leaves untouched.</p>
 
@@ -159,7 +181,7 @@
     </div>
   </header>
 
-  <!-- ===== DISCOVERY PIPELINE (your detection.png) ===== -->
+  <!-- ===== DISCOVERY PIPELINE (full width) ===== -->
   <div class="figblock reveal d5">
     <figure>
       <img src="figures/pipeline.png" alt="BiasMap discovery pipeline: Stable Diffusion to OVAM attribution maps to binary masks to IoU concept entanglement."
@@ -183,7 +205,7 @@
     </div>
   </section>
 
-  <!-- ===== METHOD: MITIGATION PIPELINE (add Figure 2) ===== -->
+  <!-- ===== METHOD: MITIGATION PIPELINE (full width) ===== -->
   <hr class="rule" />
   <section id="method">
     <div class="section-tag">Method</div>
@@ -198,20 +220,20 @@
     </div>
   </section>
 
-  <!-- ===== QUALITATIVE RESULTS (add Figures 3 / 8) ===== -->
+  <!-- ===== QUALITATIVE RESULTS (half width, centered) ===== -->
   <hr class="rule" />
   <section id="results">
     <div class="section-tag">Qualitative Results</div>
     <h2>Where the attention actually lands</h2>
     <p class="lede">Across baselines, the profession mask and the demographic mask sit on top of each other on the face. BiasMap pushes the profession mask off the face onto professional markers while keeping the demographic mask on the face, driving the overlap (IoU) down.</p>
-    <div class="figblock">
+    <div class="figblock half">
       <figure>
         <img src="figures/qualitative_gender.png" alt="Profession-Gender concept entanglement heatmaps across models."
              onerror="figFallback(this,'Figure 3 \u00b7 Profession-Gender overlap','figures/qualitative_gender.png')" />
         <figcaption><b>Profession-Gender entanglement.</b> Profession, gender, and overlapping attention regions across SD1.5, FairDiffusion, ITI-GEN, DiffLens, EFA, and BiasMap. BiasMap yields the lowest spatial overlap, with combined variants (IG+BM, FD+BM) lowest of all.</figcaption>
       </figure>
     </div>
-    <div class="figblock">
+    <div class="figblock half">
       <figure>
         <img src="figures/qualitative_race.png" alt="Profession-Race concept entanglement heatmaps across models."
              onerror="figFallback(this,'Figure 8 \u00b7 Profession-Race overlap','figures/qualitative_race.png')" />
