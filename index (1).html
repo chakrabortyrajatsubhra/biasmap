@@ -159,11 +159,11 @@
     </div>
   </header>
 
-  <!-- ===== DISCOVERY PIPELINE (your detection.jpg) ===== -->
+  <!-- ===== DISCOVERY PIPELINE (your detection.png) ===== -->
   <div class="figblock reveal d5">
     <figure>
-      <img src="figures/pipeline.jpg" alt="BiasMap discovery pipeline: Stable Diffusion to OVAM attribution maps to binary masks to IoU concept entanglement."
-           onerror="figFallback(this,'Figure 1 \u00b7 Discovery pipeline','figures/pipeline.jpg')" />
+      <img src="figures/pipeline.png" alt="BiasMap discovery pipeline: Stable Diffusion to OVAM attribution maps to binary masks to IoU concept entanglement."
+           onerror="figFallback(this,'Figure 1 \u00b7 Discovery pipeline','figures/pipeline.png')" />
       <figcaption><b>Bias discovery via attribution maps.</b> For a generated face, BiasMap uses OVAM to extract cross-attention attribution maps for a demographic concept and a profession concept, binarizes them at a high-attention threshold, and measures their spatial overlap as an Intersection-over-Union (IoU) score. A high IoU means the demographic and the profession occupy the same pixels, evidence of hidden representational entanglement.</figcaption>
     </figure>
   </div>
@@ -191,8 +191,8 @@
     <p class="lede">From a biased generation, BiasMap computes a differentiable SoftIoU between the demographic and semantic attribution maps and uses its gradient as an energy term. Combined with classifier-free guidance, this steers each denoising step toward latent states with lower concept entanglement, no retraining and no architectural change to the diffusion model.</p>
     <div class="figblock">
       <figure>
-        <img src="figures/mitigation.jpg" alt="BiasMap mitigation pipeline via energy-guided diffusion sampling."
-             onerror="figFallback(this,'Figure 2 \u00b7 Mitigation pipeline','figures/mitigation.jpg')" />
+        <img src="figures/mitigation.png" alt="BiasMap mitigation pipeline via energy-guided diffusion sampling."
+             onerror="figFallback(this,'Figure 2 \u00b7 Mitigation pipeline','figures/mitigation.png')" />
         <figcaption><b>Energy-guided diffusion sampling.</b> At each timestep the SoftIoU between attribution maps acts as a differentiable energy function; its gradient is injected as a noise correction alongside classifier-free guidance, pushing the trajectory toward disentangled representations while preserving prompt fidelity.</figcaption>
       </figure>
     </div>
@@ -206,15 +206,15 @@
     <p class="lede">Across baselines, the profession mask and the demographic mask sit on top of each other on the face. BiasMap pushes the profession mask off the face onto professional markers while keeping the demographic mask on the face, driving the overlap (IoU) down.</p>
     <div class="figblock">
       <figure>
-        <img src="figures/qualitative_gender.jpg" alt="Profession-Gender concept entanglement heatmaps across models."
-             onerror="figFallback(this,'Figure 3 \u00b7 Profession-Gender overlap','figures/qualitative_gender.jpg')" />
+        <img src="figures/qualitative_gender.png" alt="Profession-Gender concept entanglement heatmaps across models."
+             onerror="figFallback(this,'Figure 3 \u00b7 Profession-Gender overlap','figures/qualitative_gender.png')" />
         <figcaption><b>Profession-Gender entanglement.</b> Profession, gender, and overlapping attention regions across SD1.5, FairDiffusion, ITI-GEN, DiffLens, EFA, and BiasMap. BiasMap yields the lowest spatial overlap, with combined variants (IG+BM, FD+BM) lowest of all.</figcaption>
       </figure>
     </div>
     <div class="figblock">
       <figure>
-        <img src="figures/qualitative_race.jpg" alt="Profession-Race concept entanglement heatmaps across models."
-             onerror="figFallback(this,'Figure 8 \u00b7 Profession-Race overlap','figures/qualitative_race.jpg')" />
+        <img src="figures/qualitative_race.png" alt="Profession-Race concept entanglement heatmaps across models."
+             onerror="figFallback(this,'Figure 8 \u00b7 Profession-Race overlap','figures/qualitative_race.png')" />
         <figcaption><b>Profession-Race entanglement.</b> The same pattern holds for race: BiasMap and its combinations separate the demographic and semantic concepts that baseline methods leave coupled.</figcaption>
       </figure>
     </div>
