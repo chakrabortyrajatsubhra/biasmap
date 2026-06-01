@@ -3,7 +3,7 @@
 **Leveraging Cross-Attentions to Discover and Mitigate Hidden Social Biases in Text-to-Image Generation**
 
 > Accepted to **ACM SIGKDD 2026**.
-> [Paper (DOI)](https://doi.org/10.1145/3770855.3818098) &nbsp;·&nbsp; [Project page](https://chakrabortyrajatsubhra.github.io/biasmap/)
+> [Paper (DOI)](https://doi.org/10.48550/arXiv.2509.13496) &nbsp;·&nbsp; [Project page](https://chakrabortyrajatsubhra.github.io/biasmap/)
 
 BiasMap uncovers latent concept-level representational bias in U-Net-based Stable Diffusion models using cross-attention attribution maps, and mitigates it through energy-guided diffusion sampling that minimizes the spatial overlap (SoftIoU) between a demographic concept and a profession concept during denoising.
 
