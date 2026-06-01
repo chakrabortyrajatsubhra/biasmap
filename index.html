@@ -8,146 +8,167 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    --bg:#0a0a0c; --bg-2:#131318; --ink:#f4f1ea; --ink-soft:#a7a299;
-    --line:#2a2a32; --accent:#ff5a3c; --accent-2:#4fd1e0; --hot:#ffd23f;
-    --maxw:1140px; --radius:16px;
+    --bg:#ffffff;
+    --bg-soft:#f7f8fa;
+    --ink:#15181d;
+    --ink-soft:#586074;
+    --line:#e6e8ee;
+    --line-soft:#eef0f4;
+    --accent:#1a56db;        /* crisp academic blue */
+    --accent-soft:#eaf0fe;
+    --accent-2:#c2410c;      /* warm contrast for the IoU/red story */
+    --maxw:1080px;
+    --radius:12px;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
     margin:0; background:var(--bg); color:var(--ink);
-    font-family:"IBM Plex Sans",sans-serif; font-size:17px; line-height:1.62;
+    font-family:"Inter",system-ui,sans-serif; font-size:17px; line-height:1.6;
     -webkit-font-smoothing:antialiased;
-    background-image:
-      radial-gradient(1000px 600px at 85% -10%, rgba(255,90,60,.14), transparent 60%),
-      radial-gradient(800px 600px at -5% 8%, rgba(79,209,224,.10), transparent 60%);
-    background-attachment:fixed;
   }
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
   a{color:var(--accent);text-decoration:none}
   a:hover{text-decoration:underline}
 
-  /* ---- accepted banner ---- */
-  .banner{
-    background:linear-gradient(90deg, rgba(255,90,60,.12), rgba(255,90,60,.2), rgba(255,90,60,.12));
-    border-bottom:1px solid rgba(255,90,60,.3);
-    color:var(--accent); text-align:center;
-    font-family:"IBM Plex Mono",monospace; font-size:13px; letter-spacing:.18em;
-    text-transform:uppercase; padding:12px 16px; font-weight:500;
+  /* ---- top accent bar + venue ---- */
+  .topbar{height:4px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+  .venue{
+    text-align:center;padding:16px 16px 0;
+    font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent);
+  }
+  .venue .pill{
+    display:inline-block;background:var(--accent-soft);color:var(--accent);
+    padding:5px 14px;border-radius:999px;font-weight:500;
   }
 
   /* ---- hero ---- */
-  header{padding:70px 0 26px;text-align:center}
-  .eyebrow{
-    font-family:"Fraunces",serif; font-weight:700; font-style:italic;
-    font-size:clamp(1.6rem,4vw,2.8rem); letter-spacing:.02em;
-    margin-bottom:26px; color:#fff;
-    text-shadow:
-      0 0 8px rgba(255,90,60,.9),
-      0 0 22px rgba(255,90,60,.65),
-      0 0 48px rgba(255,90,60,.45),
-      0 0 80px rgba(255,90,60,.25);
-    animation:glow 2.8s ease-in-out infinite alternate;
+  header{padding:30px 0 26px;text-align:center}
+  h1{
+    font-family:"Newsreader",Georgia,serif;font-weight:600;
+    font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.08;letter-spacing:-.012em;
+    margin:14px auto 14px;max-width:20ch;color:var(--ink);
   }
-  @keyframes glow{
-    from{text-shadow:0 0 8px rgba(255,90,60,.8),0 0 20px rgba(255,90,60,.55),0 0 40px rgba(255,90,60,.35),0 0 70px rgba(255,90,60,.2)}
-    to{text-shadow:0 0 12px rgba(255,90,60,1),0 0 30px rgba(255,90,60,.8),0 0 60px rgba(255,90,60,.55),0 0 100px rgba(255,90,60,.35)}
+  h1 .name{color:var(--accent)}
+  .subtitle{
+    font-family:"Newsreader",serif;font-style:italic;font-weight:400;
+    font-size:clamp(1.05rem,2.1vw,1.35rem);color:var(--ink-soft);
+    max-width:52ch;margin:0 auto 28px;
   }
-  h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(2.8rem,6.4vw,5rem);line-height:1.02;letter-spacing:-.02em;margin:0 auto 16px;max-width:17ch}
-  h1 .name{color:var(--accent);font-style:italic}
-  .subtitle{font-family:"Fraunces",serif;font-style:italic;font-weight:400;font-size:clamp(1.15rem,2.4vw,1.55rem);color:var(--ink-soft);max-width:50ch;margin:0 auto 34px}
 
-  .authors{font-size:1.06rem;font-weight:500;margin:6px auto 6px;max-width:64ch;line-height:1.85}
+  .authors{font-size:1.02rem;font-weight:500;margin:6px auto 6px;max-width:66ch;line-height:1.8}
   .authors a{color:var(--ink)}
   .authors a:hover{color:var(--accent)}
-  .authors sup{color:var(--accent-2);font-weight:600}
-  .authors .star{color:var(--accent);font-weight:700}
-  .affil{font-size:.94rem;color:var(--ink-soft);margin:4px auto 2px;max-width:64ch}
-  .equal{font-size:.86rem;color:var(--ink-soft);margin-bottom:30px}
+  .authors sup{color:var(--accent);font-weight:600}
+  .authors .star{color:var(--accent-2);font-weight:700}
+  .affil{font-size:.92rem;color:var(--ink-soft);margin:4px auto 2px;max-width:66ch}
+  .equal{font-size:.84rem;color:var(--ink-soft);margin-bottom:26px}
 
-  .buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--bg);padding:12px 22px;border-radius:999px;font-size:.94rem;font-weight:600;border:1px solid var(--ink);transition:transform .18s ease, background .18s ease, box-shadow .18s ease}
-  .btn:hover{transform:translateY(-2px);text-decoration:none;background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 0 24px rgba(255,90,60,.5)}
-  .btn.ghost{background:transparent;color:var(--ink)}
+  .buttons{display:flex;gap:11px;justify-content:center;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--ink);color:#fff;padding:11px 20px;border-radius:999px;
+    font-size:.92rem;font-weight:600;border:1px solid var(--ink);
+    transition:transform .16s ease, background .16s ease, box-shadow .16s ease;
+  }
+  .btn:hover{transform:translateY(-2px);text-decoration:none;background:var(--accent);border-color:var(--accent);box-shadow:0 8px 20px -8px rgba(26,86,219,.6)}
+  .btn.ghost{background:#fff;color:var(--ink);border-color:var(--line)}
   .btn.ghost:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
   .btn svg{width:16px;height:16px;fill:currentColor}
 
   /* ---- figures ---- */
-  .figblock{margin:46px 0 6px}
+  .figblock{margin:40px 0 6px}
   .figblock figure{margin:0}
-  .figblock img{width:100%;height:auto;display:block;border-radius:var(--radius);border:1px solid var(--line);background:#fff;padding:10px;box-shadow:0 30px 70px -30px rgba(0,0,0,.9)}
-  /* half-width centered figures, used for qualitative results */
-  .figblock.half figure{max-width:50%;margin:0 auto}
-  figcaption{font-size:.9rem;color:var(--ink-soft);margin-top:14px;max-width:80ch;text-align:left}
+  .figblock img{
+    width:100%;height:auto;display:block;border-radius:var(--radius);
+    border:1px solid var(--line);background:#fff;padding:10px;
+    box-shadow:0 12px 34px -22px rgba(21,24,29,.45);
+  }
+  .figblock.half figure{max-width:52%;margin:0 auto}
+  figcaption{font-size:.9rem;color:var(--ink-soft);margin-top:13px;max-width:80ch;text-align:left}
   .figblock.half figcaption{max-width:100%;text-align:center}
   figcaption b{color:var(--ink);font-weight:600}
   .fig-placeholder{
     border:2px dashed var(--line);border-radius:var(--radius);
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
-    padding:64px 20px;background:var(--bg-2);text-align:center;
+    padding:60px 20px;background:var(--bg-soft);text-align:center;
   }
-  .fig-placeholder span{font-family:"Fraunces",serif;font-style:italic;font-size:1.15rem;color:var(--accent)}
-  .fig-placeholder small{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
+  .fig-placeholder span{font-family:"Newsreader",serif;font-style:italic;font-size:1.1rem;color:var(--accent)}
+  .fig-placeholder small{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
 
   /* ---- stats ---- */
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin:58px 0}
-  .stat{background:var(--bg-2);padding:30px 22px;text-align:center}
-  .stat .num{font-family:"Fraunces",serif;font-weight:700;font-size:3rem;line-height:1;color:var(--accent)}
-  .stat:nth-child(2) .num{color:var(--accent-2)}
-  .stat:nth-child(3) .num{color:var(--hot)}
+  .stats{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:52px 0;
+  }
+  .stat{
+    background:var(--bg-soft);border:1px solid var(--line);
+    padding:28px 22px;text-align:center;border-radius:var(--radius);
+  }
+  .stat .num{font-family:"Newsreader",serif;font-weight:600;font-size:2.7rem;line-height:1;color:var(--accent)}
+  .stat:nth-child(3) .num{color:var(--accent-2)}
   .stat .lbl{font-size:.86rem;color:var(--ink-soft);margin-top:10px}
 
   /* ---- sections ---- */
-  section{padding:46px 0}
-  .section-tag{font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-2);margin-bottom:16px}
-  h2{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(2.1rem,4.4vw,3.2rem);letter-spacing:-.015em;margin:0 0 20px;line-height:1.06}
-  .lede{font-size:1.1rem;color:var(--ink-soft);max-width:74ch}
-  .abstract-body{max-width:74ch}
+  section{padding:42px 0}
+  .section-tag{
+    font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent);margin-bottom:13px;text-align:center;
+  }
+  h2{font-family:"Newsreader",serif;font-weight:700;font-size:clamp(2.1rem,4.4vw,3rem);letter-spacing:-.012em;margin:0 0 22px;line-height:1.1;text-align:center}
+  .lede{font-size:1.06rem;color:var(--ink-soft);max-width:74ch;margin-left:auto;margin-right:auto;text-align:center}
+  .abstract-body{max-width:74ch;margin:0 auto}
+  .abstract-body p{margin:0 0 16px}
   hr.rule{border:0;border-top:1px solid var(--line);margin:0}
 
-  .findings{display:grid;gap:18px;margin-top:8px}
-  .finding{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px}
-  .finding .rq{font-family:"Fraunces",serif;font-style:italic;font-weight:700;font-size:1.7rem;color:var(--accent);line-height:1;white-space:nowrap}
-  .finding h3{margin:0 0 6px;font-size:1.25rem;font-weight:600}
-  .finding p{margin:0;color:var(--ink-soft);font-size:1rem}
+  .findings{display:grid;gap:16px;margin-top:8px}
+  .finding{
+    display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start;
+    background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:var(--radius);padding:24px 26px;transition:box-shadow .18s ease,transform .18s ease;
+  }
+  .finding:hover{box-shadow:0 14px 30px -20px rgba(21,24,29,.4);transform:translateY(-2px)}
+  .finding .rq{font-family:"JetBrains Mono",monospace;font-weight:500;font-size:.95rem;color:var(--accent);line-height:1.4;white-space:nowrap}
+  .finding h3{margin:0 0 6px;font-size:1.15rem;font-weight:600}
+  .finding p{margin:0;color:var(--ink-soft);font-size:.98rem}
 
   .contribs{list-style:none;padding:0;margin:14px 0 0;max-width:78ch}
-  .contribs li{position:relative;padding:15px 0 15px 34px;border-bottom:1px solid var(--line)}
+  .contribs li{position:relative;padding:14px 0 14px 32px;border-bottom:1px solid var(--line-soft)}
   .contribs li:last-child{border-bottom:0}
-  .contribs li::before{content:"";position:absolute;left:2px;top:22px;width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px rgba(255,90,60,.8)}
+  .contribs li::before{content:"";position:absolute;left:2px;top:21px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
 
-  .bibtex{background:#000;color:#d7d2c8;border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;overflow:auto;position:relative}
-  .bibtex pre{margin:0;font-family:"IBM Plex Mono",monospace;font-size:13.5px;line-height:1.6;white-space:pre}
-  .copy-btn{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.08);color:#d7d2c8;border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer;font-family:"IBM Plex Mono",monospace}
+  .bibtex{background:var(--bg-soft);color:var(--ink);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;overflow:auto;position:relative}
+  .bibtex pre{margin:0;font-family:"JetBrains Mono",monospace;font-size:13px;line-height:1.6;white-space:pre}
+  .copy-btn{position:absolute;top:13px;right:13px;background:#fff;color:var(--ink-soft);border:1px solid var(--line);border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer;font-family:"JetBrains Mono",monospace}
   .copy-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
 
-  footer{text-align:center;padding:50px 0 64px;color:var(--ink-soft);font-size:.85rem;border-top:1px solid var(--line);margin-top:30px}
+  footer{text-align:center;padding:44px 0 60px;color:var(--ink-soft);font-size:.85rem;border-top:1px solid var(--line);margin-top:28px}
 
-  .reveal{opacity:0;transform:translateY(14px);animation:rise .7s ease forwards}
+  .reveal{opacity:0;transform:translateY(12px);animation:rise .6s ease forwards}
   @keyframes rise{to{opacity:1;transform:none}}
-  .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.25s}.d4{animation-delay:.35s}.d5{animation-delay:.45s}
+  .d1{animation-delay:.04s}.d2{animation-delay:.12s}.d3{animation-delay:.2s}.d4{animation-delay:.28s}.d5{animation-delay:.36s}
   @media (max-width:680px){
     .stats{grid-template-columns:1fr}
     .finding{grid-template-columns:1fr;gap:8px}
-    .figblock.half figure{max-width:100%}  /* full width on mobile so it stays legible */
+    .figblock.half figure{max-width:100%}
   }
-  @media (prefers-reduced-motion:reduce){.reveal,.eyebrow{animation:none;opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none}}
 </style>
 </head>
 
 <body>
 
-<div class="banner">Accepted to KDD 2026</div>
+<div class="topbar"></div>
+<div class="venue"><span class="pill">Accepted to ACM SIGKDD 2026</span></div>
 
 <div class="wrap">
 
   <header>
-    <div class="eyebrow reveal d1">ACM SIGKDD 2026</div>
-    <h1 class="reveal d2"><span class="name">BiasMap</span>: Leveraging Cross-Attentions to Discover &amp; Mitigate Hidden Social Biases in Text-to-Image Generation</h1>
+    <h1 class="reveal d1"><span class="name">BiasMap</span>: Leveraging Cross-Attentions to Discover &amp; Mitigate Hidden Social Biases in Text-to-Image Generation</h1>
     <p class="subtitle reveal d2">Cross-attention attribution maps expose the representational bias that distributional fairness leaves untouched.</p>
 
     <div class="authors reveal d3">
@@ -162,9 +183,9 @@
     <div class="equal reveal d3"><span class="star">*</span> Equal contribution (co-first authors)</div>
 
     <div class="buttons reveal d4">
-      <a class="btn" href="https://doi.org/10.1145/3770855.3818098" aria-label="Paper DOI">
+      <a class="btn" href="https://doi.org/10.48550/arXiv.2509.13496" aria-label="Paper">
         <svg viewBox="0 0 24 24"><path d="M14 2v6h6M8 13h8v1.5H8zm0 4h8v1.5H8z"/><path d="M6 2h9l5 5v15H6V2z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
-        Paper (DOI)
+        Paper
       </a>
       <a class="btn ghost" href="https://arxiv.org/abs/2509.13496" aria-label="arXiv">
         <svg viewBox="0 0 24 24"><path d="M3 4h18v2H3zm0 7h18v2H3zm0 7h18v2H3z"/></svg>
@@ -198,7 +219,7 @@
 
   <hr class="rule" />
   <section id="abstract">
-    <div class="section-tag">Abstract</div>
+    <h2>Abstract</h2>
     <div class="abstract-body lede">
       <p>Bias discovery is critical for black-box generative models, especially text-to-image (TTI) models. Existing work focuses predominantly on output-level demographic distributions, which do not guarantee that concept representations are disentangled after mitigation. We propose <b style="color:var(--ink)">BiasMap</b>, a framework for uncovering latent concept-level representational biases in U-Net-based Stable Diffusion models.</p>
       <p>BiasMap leverages cross-attention attribution maps to reveal structural entanglements between demographics (gender, race) and semantics (professions). Using these maps, we quantify spatial demographic-semantic entanglement via Intersection over Union (IoU), offering a lens into bias that remains hidden in existing fairness approaches. We further use BiasMap for mitigation through energy-guided diffusion sampling that modifies the latent noise space and minimizes the expected SoftIoU during denoising. Our findings show that existing fairness interventions may reduce the output distributional gap but often fail to disentangle concept-level coupling, whereas our method mitigates concept entanglement during generation while complementing distributional bias mitigation.</p>
@@ -210,7 +231,7 @@
   <section id="method">
     <div class="section-tag">Method</div>
     <h2>Mitigation by energy-guided sampling</h2>
-    <p class="lede">From a biased generation, BiasMap computes a differentiable SoftIoU between the demographic and semantic attribution maps and uses its gradient as an energy term. Combined with classifier-free guidance, this steers each denoising step toward latent states with lower concept entanglement, no retraining and no architectural change to the diffusion model.</p>
+    <p class="lede">From a biased generation, BiasMap computes a differentiable SoftIoU between the demographic and semantic attribution maps and uses its gradient as an energy term. Combined with classifier-free guidance, this steers each denoising step toward latent states with lower concept entanglement, with no retraining and no architectural change to the diffusion model.</p>
     <div class="figblock">
       <figure>
         <img src="figures/mitigation.png" alt="BiasMap mitigation pipeline via energy-guided diffusion sampling."
@@ -297,13 +318,13 @@
   booktitle = {Proceedings of the 32nd ACM SIGKDD Conference on Knowledge
                Discovery and Data Mining (KDD)},
   year      = {2026},
-  doi       = {10.1145/3770855.3818098}
+  doi       = {10.48550/arXiv.2509.13496}
 }</pre>
     </div>
   </section>
 
   <footer>
-    &copy; 2026 BiasMap &middot; University of North Carolina at Charlotte &amp; Utah State University. Static site for GitHub Pages.
+    &copy; 2026 BiasMap &middot; University of North Carolina at Charlotte &amp; Utah State University.
   </footer>
 
 </div>
